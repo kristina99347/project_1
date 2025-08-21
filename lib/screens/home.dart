@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_1/screens/profile.dart';
+// pastikan kamu punya file ini
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,13 +12,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
+  // Daftar halaman yang akan ditampilkan saat navigasi dipilih
   final List<Widget> _pages = const [
     Center(child: Text('Ini halaman Home')),
     Center(child: Text('Ini halaman Search')),
     Center(child: Text('Ini halaman Chat')),
-    Center(child: Text('Ini halaman Profile')),
+    ProfilePage(), // Gunakan halaman profil yang kamu buat
   ];
 
+  // Fungsi untuk mengubah tab aktif
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -27,9 +31,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Aplikasi Flutter"),
+        title: const Text("Iuran Warga"),
       ),
-      body: _pages[_selectedIndex],
+      body: _pages[_selectedIndex], // Tampilkan halaman sesuai tab
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue,
